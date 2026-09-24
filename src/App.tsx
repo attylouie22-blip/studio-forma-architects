@@ -11,6 +11,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import AdminApp from './pages/admin/AdminApp';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -19,22 +20,13 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const { pathname } = useLocation();
+  if (pathname.startsWith('/admin')) return <Routes><Route path="/admin/*" element={<AdminApp/>}/></Routes>;
   return <>
-    <ScrollToTop />
-    <ScrollProgress />
-    <Header />
-    <main>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:slug" element={<ProjectDetail />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </main>
-    <Footer />
-    <BackToTop />
-    <PointerHalo />
+    <ScrollToTop/><ScrollProgress/><Header/>
+    <main><Routes>
+      <Route path="/" element={<Home/>}/><Route path="/projects" element={<Projects/>}/><Route path="/projects/:slug" element={<ProjectDetail/>}/><Route path="/about" element={<About/>}/><Route path="/services" element={<Services/>}/><Route path="/contact" element={<Contact/>}/>
+    </Routes></main>
+    <Footer/><BackToTop/><PointerHalo/>
   </>;
 }

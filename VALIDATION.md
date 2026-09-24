@@ -1,27 +1,15 @@
 # Validation Notes
 
-The project was checked in the generation sandbox for:
+## Completed checks
 
-- TypeScript/TSX syntax by transpiling all source files with TypeScript.
-- Missing local relative imports.
-- Presence of all 36 runtime WebP project visuals.
-- Presence of all 36 editable SVG source visuals.
-- Absence of external raster-image dependencies in the source code.
-- Responsive CSS breakpoints for desktop, tablet, Android/iPhone-size layouts.
-- Mobile fallbacks for the pinned story and horizontal gallery.
-- `prefers-reduced-motion` fallbacks.
-- SPA route fallback file (`public/_redirects`).
-- ScrollTrigger animation cleanup through `useGSAP`/GSAP context patterns.
+- React/TypeScript source files pass syntax transpilation checks.
+- All relative TypeScript/TSX imports resolve to project files.
+- CMS routes and supporting files are present.
+- Supabase schema includes tables, Auth-admin membership, RLS, public image bucket, storage policies, and demo project seed data.
+- Public portfolio has a local fallback when Supabase is unavailable.
+- Admin upload accepts multiple image files and stores them in Supabase Storage.
+- Admin CRUD covers project create/edit, hero selection, image reordering/removal, publish/unpublish, featured status, and project deletion.
 
-## Sandbox package-install limitation
+## Environment limitation
 
-A full `npm install` / `npm run build` was attempted, but this generation sandbox could not resolve or connect to the npm registry. The installation timed out because outbound npm registry access was unavailable. Consequently, the production bundle could not be executed inside this sandbox.
-
-On a normal internet-connected machine or in Bolt, run:
-
-```bash
-npm install
-npm run build
-```
-
-The project intentionally does not include `node_modules`.
+The build environment used to prepare this archive cannot reach the npm registry, so `npm install` cannot complete here. The added dependency is declared in `package.json` as `@supabase/supabase-js`. Run `npm install` in Bolt or on a normal internet connection, then run `npm run build` before publishing.
