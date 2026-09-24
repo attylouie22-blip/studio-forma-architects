@@ -1,0 +1,3 @@
+import { Link } from 'react-router-dom';
+import { siteConfig } from '../data/siteConfig';
+export default function Footer(){return <footer className="footer"><div><div className="eyebrow">{siteConfig.firmName}</div><h2>{siteConfig.secondaryTagline}</h2></div><div className="footer-grid"><div><p>{siteConfig.address}</p><p>{siteConfig.phone}</p><p>{siteConfig.email}</p></div><div><a href={siteConfig.instagram}>Instagram</a><a href={siteConfig.facebook}>Facebook</a><Link to="/contact">Start a Project</Link></div></div><div className="footer-bottom"><span>© {siteConfig.copyrightYear} {siteConfig.firmName}</span><span>Website by Webify PH</span></div></footer>}
