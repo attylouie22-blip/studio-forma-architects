@@ -1,0 +1,1 @@
+import { testimonials } from '../data/testimonials'; export default function Testimonials(){return <section className="testimonials"><p className="eyebrow">Client Perspective</p>{testimonials.map((t,i)=><blockquote key={t.author} data-reveal><span>0{i+1}</span><p>“{t.quote}”</p><footer>{t.author} — {t.project}</footer></blockquote>)}</section>}
