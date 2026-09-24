@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@supabase/supabase-js": "^2.117.1",
     "gsap": "^3.13.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.9.1",
-    "@supabase/supabase-js": "^2.49.1"
+    "react-router-dom": "^7.9.1"
   },
   "devDependencies": {
     "@types/react": "^19.1.13",
